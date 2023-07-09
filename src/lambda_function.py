@@ -12,19 +12,17 @@ import rds_event_handler
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
-
+webhook_url = os.getenv("WEBHOOK_URL")
 
 def handler(event, context):
-    webhook_url = os.getenv("WEBHOOK_URL")
     
     builders = [
-                sqs_alarm_event_handler,
-                rds_event_handler,
-                default_event_handler
-            ]
+        sqs_alarm_event_handler,
+        rds_event_handler,
+        default_event_handler
+    ]
     
     for record in event.get('Records', []):
-        
         sns = record['Sns']
         
         print(sns['Message'])
