@@ -5,6 +5,11 @@ Python project to run on AWS Lambda that can receive notifications from CloudWat
 
 ![Design Diagram](docs/aws-event-notifier.png)
 
+## Supported Events
+
+* CloudWatch Alarms for SQS
+* RDS Aurora Serverless scaling events
+
 ## Python
 
 Code writed and tested on Python 3.9
